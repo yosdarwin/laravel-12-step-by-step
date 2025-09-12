@@ -1,3 +1,3 @@
 <x-layout heading="Dashboard">
-    <h1>Home Slot</h1>
+    <h1>Hello, {{ $nama }}</h1>
 </x-layout>
