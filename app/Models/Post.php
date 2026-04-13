@@ -2,40 +2,12 @@
 
 namespace App\Models;
 
-use Illuminate\Support\Arr;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
 
-class Post
+class Post extends Model
 {
-    public static function All()
-    {
-        return [
-            [
-                'title' => 'Judul Post Pertama',
-                'slug' => 'judul-post-pertama',
-                'author' => 'Yosdarwin',
-                'body' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod.'
-            ],
-            [
-                'title' => 'Judul Post Kedua',
-                'slug' => 'judul-post-kedua',
-                'author' => 'Yosdarwin',
-                'body' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod.'
-            ],
-            [
-                'title' => 'Judul Post Ketiga',
-                'slug' => 'judul-post-ketiga',
-                'author' => 'Yosdarwin',
-                'body' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod.'
-            ],
-        ];
-    }
+    use HasFactory;
+    protected $guarded = [];
 
-    public static function find($slug): array
-    {
-        $post = Arr::first((static::All()), fn($post) => $post['slug'] === $slug);
-        if (!$post) {
-            abort(404);
-        }
-        return $post;
-    }
 }

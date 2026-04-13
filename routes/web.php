@@ -15,8 +15,8 @@ Route::get('/blog', function () {
     ]);
 });
 
-Route::get('/blog/{slug}', function ($slug) {
-    return view('blog-detail', ['post' => Post::find($slug)]);
+Route::get('/blog/{post:slug}', function (Post $post) {
+    return view('blog-detail', ['post' => $post]);
 });
 Route::get('/contact', function () {
     return view('contact');
