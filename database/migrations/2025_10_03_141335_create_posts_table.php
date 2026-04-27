@@ -14,6 +14,7 @@ return new class extends Migration {
             $table->id();
             $table->string('title');
             $table->foreignId('author_id')->constrained('users', indexName: 'author_post_id')->cascadeOnDelete();
+            $table->foreignId('category_id')->constrained('categories', indexName: 'category_post_id')->cascadeOnDelete();
             $table->string('slug')->unique();
             $table->text('body');
             $table->timestamps();
